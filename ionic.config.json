@@ -1,0 +1,7 @@
+{
+  "name": "ionic-firebase-anonymous-login",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Anonymous Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    Welcome user
+    <p>You are logged in but you are still anonymous. If you wish to connect this account with your email, signup now !
+    </p>
+  </div>
+  <ion-row *ngIf="userWantsToSignup">
+    <ion-col>
+      <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input" padding-horizontal
+        clear-input="true"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="userWantsToSignup">
+    <ion-col>
+      <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password" class="input"
+        padding-horizontal clear-input="true"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button *ngIf="userWantsToSignup" expand="block" (click)="signup()" color="undefined" class="transition">
+        <strong class="white">
+          Sign Up</strong></ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button *ngIf="!userWantsToSignup" expand="block" (click)="wantsToSignup()" color="undefined"
+        class="transition"><strong class="white">I want to
+          Sign Up</strong></ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text class="error" text-center>{{linkError}}</ion-text>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer class="transition">
+  <ion-toolbar color="undefined" (click)="logout()">
+    <ion-title>
+      Logout
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

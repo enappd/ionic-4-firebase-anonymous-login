@@ -1,0 +1,75 @@
+<!-- /**
+* Ionic Firebase Full Auth App  (https://store.enappd.com/product/firebase-starter-full-auth/)
+*
+* Copyright © 2019-present Enappd. All rights reserved.
+*
+* This source code is licensed as per the terms found in the
+* LICENSE.md file in the root directory of this source tree.
+*/  -->
+
+
+<ion-content no-padding>
+  <div id="sign-in-button"></div>
+  <div class="main">
+    <ion-card no-margin class="card">
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="assets/firebase.png" class="img-logo">
+            <ion-text>
+              <h2 no-margin margin-vertical text-center>Sign In</h2>
+            </ion-text>
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="login()" color="undefined" class="transition"><strong
+                class="white">Anonymously Sign In</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="wantsToLoginWithCredentials">
+          <ion-col>
+            <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input" padding-horizontal
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="wantsToLoginWithCredentials">
+          <ion-col>
+            <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password" class="input"
+              padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button *ngIf="!wantsToLoginWithCredentials" expand="block" (click)="allowLoginWithCredentials()"
+              color="undefined" class="transition">
+              <strong class="white">
+                Sign in with credentials</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button *ngIf="wantsToLoginWithCredentials" expand="block" (click)="loginWithCredentials()"
+              color="undefined" class="transition">
+              <strong class="white">
+                Sign in</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error" text-center>{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title text-center>
+      Made by Enappd
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
